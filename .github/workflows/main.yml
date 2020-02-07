@@ -12,12 +12,13 @@ jobs:
       uses: actions/setup-go@v1
       with:
         go-version: 1.13
+
     - name: Build
       env:
         GOOS: linux
         GOARCH: arm64
       run: |
         git clone https://github.com/geph-official/geph2.git
-        cd geph2/cmd/geph-client
+        cd geph2/
         go get -u ./...
-        go build
+        go build cmd/geph-client/
