@@ -20,4 +20,9 @@ jobs:
       run: |
         git clone https://github.com/geph-official/geph2.git
         cd geph2/cmd/geph-client/
-        go build         
+        go build
+
+    - uses: actions/upload-artifact@master
+      with:
+      name: geph-client
+      path: geph2/cmd/geph-client/geph-client
