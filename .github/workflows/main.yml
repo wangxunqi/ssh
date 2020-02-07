@@ -21,3 +21,7 @@ jobs:
         git clone https://github.com/geph-official/geph2.git
         cd geph2/cmd/geph-client/
         go build
+
+     - name: Release
+       env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ASSET_PATH: geph2/cmd/geph-client/
