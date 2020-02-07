@@ -24,5 +24,6 @@ jobs:
 
      - name: Release
        uses: Ricky-Hao/action-release@master
-       env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            ASSET_PATH: geph2/cmd/geph-client/
+       env: 
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         ASSET_PATH: geph2/cmd/geph-client/
