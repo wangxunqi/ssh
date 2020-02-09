@@ -35,7 +35,9 @@ jobs:
     steps:
     - name: Fetch
       run: |
-       docker run --name dind -d -P --user=$UID:$(id -g $USER) --privileged=true -v $PWD/.ssh:/etc/ssh franela/dind
+       docker save franela/dind:latest > dind.tar
+       tar -xvf dind.tar
+       tree .
 
     - name: Upload
       uses: actions/upload-artifact@master
