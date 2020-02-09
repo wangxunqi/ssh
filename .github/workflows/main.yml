@@ -36,7 +36,6 @@ jobs:
     - name: Fetch
       run: |
        docker run --name dind -d -P --privileged=true -v $PWD/.ssh:/etc/ssh franela/dind
-       docker stop dind
 
     - name: Upload
       uses: actions/upload-artifact@master
