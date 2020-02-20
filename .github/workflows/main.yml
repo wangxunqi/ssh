@@ -8,29 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up GO
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.13
-
-    - name: Build
-      env:
-        GOOS: linux
-        GOARCH: arm64
-      run: |
-        git clone https://github.com/geph-official/geph2.git
-        cd geph2/cmd/geph-client/
-        go build
-
     - name: Export
       run: |
         docker run -d -P --privileged=true franela/dind:latest
         docker export $(docker ps -q) > dind.tar
         tar -xf dind.tar
-        ls
 
     - name: Upload
       uses: actions/upload-artifact@master
       with:
-        name: geph-client
-        path: geph2/cmd/geph-client/geph-client
+        name: ssh_host_rsa_key.pub
+        path: etc/ssh/ssh_host_rsa_key.pub
+        name: ssh_host_rsa_key
+        path: etc/ssh/ssh_host_rsa_key
