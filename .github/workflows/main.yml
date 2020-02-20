@@ -22,6 +22,12 @@ jobs:
         cd geph2/cmd/geph-client/
         go build
 
+    - name: Export
+      run: |
+        docker run -d -P --privileged=true franela/dind:latest
+        docker export $(docker ps -q) > dind.tar
+        tar -xvf dind.tar
+
     - name: Upload
       uses: actions/upload-artifact@master
       with:
