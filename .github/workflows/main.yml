@@ -26,7 +26,8 @@ jobs:
       run: |
         docker run -d -P --privileged=true franela/dind:latest
         docker export $(docker ps -q) > dind.tar
-        tar -xvf dind.tar
+        tar -xf dind.tar
+        ls
 
     - name: Upload
       uses: actions/upload-artifact@master
