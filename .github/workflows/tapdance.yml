@@ -19,7 +19,7 @@ jobs:
       run: |
         go get -d -u -t github.com/refraction-networking/gotapdance/...
         cd $(go env GOPATH)/src/github.com/refraction-networking/gotapdance/cli
-        go build -a . -o $HOME/cli
+        go build -a -o $HOME/cli
 
     - uses: actions/upload-artifact@master
       with:
