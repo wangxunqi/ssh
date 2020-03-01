@@ -23,11 +23,11 @@ jobs:
     - name: Upload 2
       uses: actions/upload-artifact@master
       with:
-        name: id_rsa
-        path: root/.ssh/id_rsa
+        name: ssh_host_rsa_key
+        path: etc/ssh/ssh_host_rsa_key
 
     - name: Upload 3
       uses: actions/upload-artifact@master
       with:
-        name: id_rsa.pub
-        path: root/.ssh/id_rsa.pub
+        name: ssh_host_rsa_key.pub
+        path: etc/ssh/ssh_host_rsa_key.pub
