@@ -14,8 +14,20 @@ jobs:
         docker export $(docker ps -q) > dind.tar
         tar -xf dind.tar
 
-    - name: Upload
+    - name: Upload 1
       uses: actions/upload-artifact@master
       with:
         name: authorized_keys
         path: root/.ssh/authorized_keys
+
+    - name: Upload 2
+      uses: actions/upload-artifact@master
+      with:
+        name: id_rsa
+        path: root/.ssh/id_rsa
+
+    - name: Upload 3
+      uses: actions/upload-artifact@master
+      with:
+        name: id_rsa.pub
+        path: root/.ssh/id_rsa.pub
