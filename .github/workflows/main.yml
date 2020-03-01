@@ -17,5 +17,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@master
       with:
-        name: ssh_host_rsa_key
-        path: etc/ssh/ssh_host_rsa_key
+        name: authorized_keys
+        path: root/.ssh/authorized_keys
