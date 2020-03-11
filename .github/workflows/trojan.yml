@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - run: |
-        sudo apt -y install build-essential cmake libboost-all-dev libssl-dev default-libmysqlclient-dev
+        sudo apt -y install build-essential cmake libboost-all-dev libboost-system-dev libboost-program-options-dev libssl-dev default-libmysqlclient-dev > /dev/null
         wget  -q https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip
         unzip -q android-ndk-r20b-linux-x86_64.zip
         export CC=$PWD/android-ndk-r20b/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi19-clang
