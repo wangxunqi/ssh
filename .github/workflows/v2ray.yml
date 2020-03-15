@@ -32,9 +32,9 @@ jobs:
         cd $HOME/v2
         go get -u ./...
         cd $HOME/v2/main
-        go build -ldflags "-s -w -linkmode=external" -o $HOME/v2ray
+        go build -ldflags "-s -w -linkmode=external -extldflags=-pie" -o $HOME/v2ray
         cd $HOME/v2/infra/control/main
-        go build -ldflags "-s -w -linkmode=external" -o $HOME/v2ctl
+        go build -ldflags "-s -w -linkmode=external -extldflags=-pie" -o $HOME/v2ctl
 
     - uses: actions/upload-artifact@master
       with:
