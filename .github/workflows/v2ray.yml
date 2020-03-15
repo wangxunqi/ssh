@@ -19,15 +19,22 @@ jobs:
       run: |
         wget -q https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip
         unzip -q android-ndk-r20b-linux-x86_64.zip
-        go env -w CC=$PWD/android-ndk-r20b/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android28-clang
-        go env -w CXX=$PWD/android-ndk-r20b/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android28-clang++
+        export NDK=$PWD/android-ndk-r20b-linux-x86_64
+        export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64
+        export AR=$TOOLCHAIN/bin/aarch64-linux-android-ar
+        export AS=$TOOLCHAIN/bin/aarch64-linux-android-as
+        export CC=$TOOLCHAIN/bin/aarch64-linux-android29-clang
+        export CXX=$TOOLCHAIN/bin/aarch64-linux-android29-clang++
+        export LD=$TOOLCHAIN/bin/aarch64-linux-android-ld
+        export RANLIB=$TOOLCHAIN/bin/aarch64-linux-android-ranlib
+        export STRIP=$TOOLCHAIN/bin/aarch64-linux-android-strip
         git clone https://github.com/v2ray/v2ray-core.git $HOME/src
         cd $HOME/src
         go get -u ./...
         cd $HOME/src/main
-        go build -o $HOME/v2ray
+        go build -buildmode=c-shared -o $HOME/v2ray
         cd $HOME/src/infra/control/main
-        go build -o $HOME/v2ctl
+        go build -buildmode=c-shared -o $HOME/v2ctl
 
     - uses: actions/upload-artifact@master
       with:
