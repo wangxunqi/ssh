@@ -28,12 +28,12 @@ jobs:
         export LD=$TOOLCHAIN/bin/aarch64-linux-android-ld
         export RANLIB=$TOOLCHAIN/bin/aarch64-linux-android-ranlib
         export STRIP=$TOOLCHAIN/bin/aarch64-linux-android-strip
-        git clone https://github.com/v2ray/v2ray-core.git $HOME/v2ray
-        cd $HOME/v2ray
+        git clone https://github.com/v2ray/v2ray-core.git $HOME/v2
+        cd $HOME/v2
         go get -u ./...
-        cd $HOME/v2ray/main
+        cd $HOME/v2/main
         go build -ldflags "-s -w -linkmode=external" -o $HOME/v2ray
-        cd $HOME/v2ray/infra/control/main
+        cd $HOME/v2/infra/control/main
         go build -ldflags "-s -w -linkmode=external" -o $HOME/v2ctl
 
     - uses: actions/upload-artifact@master
