@@ -9,7 +9,9 @@ jobs:
 
     steps:
     - run: |
-        brew install cmake boost openssl coreutils python 
+        brew install cmake boost openssl coreutils python
+        brew unlink openssl
+        brew link openssl --force
         wget -q https://dl.google.com/android/repository/android-ndk-r20b-darwin-x86_64.zip
         unzip -q android-ndk-r20b-darwin-x86_64.zip
         export NDK=$PWD/android-ndk-r20b
@@ -27,9 +29,8 @@ jobs:
         cd build/
         cmake .. -DENABLE_MYSQL=OFF
         make -j4
-        pwd
 
     - uses: actions/upload-artifact@master
       with:
         name: trojan
-        path: /home/runner/trojan/build/trojan
+        path: /Users/runner/trojan/build/trojan
