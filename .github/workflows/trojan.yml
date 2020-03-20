@@ -27,7 +27,7 @@ jobs:
         mkdir build
         cd build/
         cmake .. -DENABLE_MYSQL=OFF
-        make -j4
+        make -j4 -shared
 
     - uses: actions/upload-artifact@master
       with:
