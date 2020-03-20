@@ -11,7 +11,7 @@ jobs:
     - run: |
         sudo add-apt-repository ppa:mhier/libboost-latest -y
         sudo apt-get update > /dev/null
-        sudo apt-get -y -qq install build-essential cmake libboost libssl-dev default-libmysqlclient-dev > /dev/null
+        sudo apt-get -y -qq install build-essential cmake libboost1.70-dev libssl-dev default-libmysqlclient-dev > /dev/null
         wget -q https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip
         unzip -q android-ndk-r20b-linux-x86_64.zip
         export NDK=$PWD/android-ndk-r20b
