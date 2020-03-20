@@ -10,10 +10,9 @@ jobs:
     steps:
     - run: |
         brew install cmake boost openssl coreutils python
-        brew unlink openssl
-        brew link openssl --force
         wget -q https://dl.google.com/android/repository/android-ndk-r20b-darwin-x86_64.zip
         unzip -q android-ndk-r20b-darwin-x86_64.zip
+        export OPENSSL_ROOT_DIR=/usr/local/opt/openssl/
         export NDK=$PWD/android-ndk-r20b
         export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/darwin-x86_64
         export AR=$TOOLCHAIN/bin/aarch64-linux-android-ar
