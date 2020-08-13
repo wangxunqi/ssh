@@ -18,7 +18,7 @@ jobs:
         CGO_ENABLED: 1
       run: |
         wget -q https://dl.google.com/android/repository/android-ndk-r21b-linux-x86_64.zip
-        unzip -q android-ndk-r20b-linux-x86_64.zip
+        unzip -q android-ndk-r21b-linux-x86_64.zip
         export CC=$PWD/android-ndk-r20b/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android29-clang
         go get -insecure -u v2ray.com/core/...
         go build -o $HOME/v2ray -trimpath -ldflags "-s -w" v2ray.com/core/main
